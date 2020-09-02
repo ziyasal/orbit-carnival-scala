@@ -2,7 +2,7 @@ val grpcVersion by extra("1.28.1")
 val slf4jVersion by extra("1.7.28")
 val jacksonVersion by extra("2.10.3")
 val finagleVersion by extra("20.8.1")
-val kontlinxVersion by extra("1.3.5")
+val kotlinxVersion by extra("1.3.5")
 
 val mainClass = "carnival.App"
 
@@ -22,8 +22,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kontlinxVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kontlinxVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinxVersion")
 
     implementation("com.twitter", "finagle-http_2.13", "20.8.1")
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")
