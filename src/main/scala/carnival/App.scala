@@ -3,7 +3,7 @@ package carnival
 import orbit.client.OrbitClientConfig
 import scala.concurrent.blocking
 
-object Program {
+object App {
   def main(args: Array[String]): Unit = {
     blocking {
       val config = new OrbitClientConfig()

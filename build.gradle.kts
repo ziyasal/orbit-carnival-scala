@@ -2,6 +2,8 @@ val grpcVersion by extra("1.28.1")
 val slf4jVersion by extra("1.7.28")
 val jacksonVersion by extra("2.10.3")
 
+val mainClass = "carnival.App"
+
 plugins {
     val kotlinVersion = "1.4.0"
 
@@ -35,4 +37,22 @@ dependencies {
 
     // Need scala-xml at test runtime
     testRuntimeOnly("org.scala-lang.modules:scala-xml_2.13:1.2.0")
+}
+
+val fatJar = task("fatJar", type = Jar::class) {
+    archiveClassifier.set("release")
+    archiveVersion.set("")
+
+    manifest {
+        attributes["Implementation-Version"] = project.version
+        attributes["Main-Class"] = mainClass
+    }
+    from(configurations.runtimeClasspath.get().map {
+        if (it.isDirectory) {
+            it
+        } else {
+            zipTree(it)
+        }
+    })
+    with(tasks["jar"] as CopySpec)
 }
