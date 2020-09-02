@@ -1,2 +1,2 @@
 # orbit-carnival-scala
-Sample EA Orbit app built with Scala 
+Sample EA Orbit app built with Scala
